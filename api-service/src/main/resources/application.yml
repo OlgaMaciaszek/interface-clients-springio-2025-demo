@@ -1,0 +1,38 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: api-service
+  http:
+    client:
+      service:
+        group:
+          -default: # default group, LoadBalancer not used:
+            base-url: http://localhost:8083
+            connect-timeout: # RestClient property
+              nanos: 6666
+            default-header:
+              -test: test
+          -company-service: # configured group, LoadBalancer used
+            read-timeout: # will override default value
+              nanos: 9999
+            base-url: http://company-service
+          -employee-service: # configured group, no baseUrl set - resolved by LoadBalancer
+            -default-header:
+              -test: test
+        read-timeout: 8888ms
+        default-header:
+          -test2: test2
+  cloud:
+    compatibility-verifier:
+      enabled: false
+    discovery:
+      client:
+        simple:
+          instances:
+            company-service:
+              - uri: http://localhost:8081
+            employee-service:
+              - uri: http://localhost:8082
+            person-service:
+              - uri: http://localhost:8083
