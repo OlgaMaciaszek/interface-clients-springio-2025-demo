@@ -11,7 +11,7 @@ class EmployeeServiceRegistrar extends AbstractHttpServiceRegistrar {
 
 	@Override
 	protected void registerHttpServices(GroupRegistry registry, AnnotationMetadata metadata) {
-		registry.forGroup("employee-service").register(BenefitsService.class);
+		registry.forGroup("employee").register(BenefitsService.class);
 	}
 
 }

@@ -2,7 +2,7 @@ server:
   port: 8080
 spring:
   application:
-    name: api-service
+    name: api
   http:
     client:
       service:
@@ -16,11 +16,11 @@ spring:
               nanos: 6666
             default-header:
               -test: test
-          -company-service:
-            base-url: http://company-service
+          -company:
+            base-url: http://company
             read-timeout: # override default
               nanos: 9999
-          -employee-service:
+          -employee:
             # baseUrl resolved by LoadBalancer
             -default-header:
               -test: test
@@ -31,9 +31,9 @@ spring:
       client:
         simple:
           instances:
-            company-service:
+            company:
               - uri: http://localhost:8081
-            employee-service:
+            employee:
               - uri: http://localhost:8082
-            person-service:
+            person:
               - uri: http://localhost:8083

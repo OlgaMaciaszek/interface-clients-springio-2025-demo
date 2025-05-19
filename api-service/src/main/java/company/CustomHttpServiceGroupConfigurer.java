@@ -8,7 +8,7 @@ public class CustomHttpServiceGroupConfigurer implements RestClientHttpServiceGr
 
 	@Override
 	public void configureGroups(Groups<RestClient.Builder> groups) {
-		groups.filterByName("company-service").configure(
+		groups.filterByName("company").configure(
 				(_, builder) ->
 						builder.requestInterceptor((request, body, execution) -> {
 									request.getHeaders().add("Custom-Header", "custom-header-value");

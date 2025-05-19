@@ -10,8 +10,8 @@ import org.springframework.web.service.registry.ImportHttpServices;
 
 @Configuration
 @ImportHttpServices(basePackages = "company/person") // default group
-@ImportHttpServices(group = "employee-service", types = { EmployeeService.class, TimeOffService.class })
-@ImportHttpServices(group = "company-service", basePackages = "company/company")
+@ImportHttpServices(group = "employee", types = { EmployeeService.class, TimeOffService.class })
+@ImportHttpServices(group = "company", basePackages = "company/company")
 @Import(EmployeeServiceRegistrar.class)
 public class ServiceConfig {
 
