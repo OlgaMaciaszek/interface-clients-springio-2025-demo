@@ -6,23 +6,24 @@ spring:
   http:
     client:
       service:
-        group:
-          -default: # default group, LoadBalancer not used:
-            base-url: http://localhost:8083
-            connect-timeout: # RestClient property
-              nanos: 6666
-            default-header:
-              -test: test
-          -company-service: # configured group, LoadBalancer used
-            read-timeout: # will override default value
-              nanos: 9999
-            base-url: http://company-service
-          -employee-service: # configured group, no baseUrl set - resolved by LoadBalancer
-            -default-header:
-              -test: test
         read-timeout: 8888ms
         default-header:
           -test2: test2
+        group:
+          -default: # default group (no load balancing)
+            base-url: http://localhost:8083
+            connect-timeout:
+              nanos: 6666
+            default-header:
+              -test: test
+          -company-service:
+            base-url: http://company-service
+            read-timeout: # override default
+              nanos: 9999
+          -employee-service:
+            # baseUrl resolved by LoadBalancer
+            -default-header:
+              -test: test
   cloud:
     compatibility-verifier:
       enabled: false
