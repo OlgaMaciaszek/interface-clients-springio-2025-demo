@@ -1,4 +1,4 @@
-package company.company;
+package api.employee;
 
 import java.util.Set;
 
@@ -8,9 +8,10 @@ import org.springframework.web.service.annotation.HttpExchange;
 /**
  * @author Olga Maciaszek-Sharma
  */
-@HttpExchange("/departments")
-public interface DepartmentService {
+@HttpExchange("/benefits")
+public interface BenefitsService {
 
 	@GetExchange
-	Set<String> getDepartments();
+	Set<BENEFIT> getBenefits();
+
 }

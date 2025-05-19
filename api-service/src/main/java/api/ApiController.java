@@ -1,17 +1,17 @@
-package company;
+package api;
 
 import java.util.Set;
 
-import company.company.DepartmentService;
-import company.company.Office;
-import company.company.OfficeService;
-import company.employee.BENEFIT;
-import company.employee.BenefitsService;
-import company.employee.Employee;
-import company.employee.EmployeeService;
-import company.employee.TimeOffService;
-import company.person.Person;
-import company.person.PersonService;
+import api.company.DepartmentService;
+import api.company.Office;
+import api.company.OfficeService;
+import api.employee.BENEFIT;
+import api.employee.BenefitsService;
+import api.employee.Employee;
+import api.employee.EmployeeService;
+import api.employee.TimeOffService;
+import api.person.Person;
+import api.person.PersonService;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;

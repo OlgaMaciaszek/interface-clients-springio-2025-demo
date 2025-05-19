@@ -1,6 +1,6 @@
-package company.employee;
+package api.employee;
 
-import company.person.Person;
+import api.person.Person;
 
 /**
  * @author Olga Maciaszek-Sharma

@@ -1,8 +1,8 @@
-package company.employee;
+package api.person;
+
 
 import java.util.Set;
 
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.service.annotation.GetExchange;
 import org.springframework.web.service.annotation.HttpExchange;
@@ -11,15 +11,13 @@ import org.springframework.web.service.annotation.PostExchange;
 /**
  * @author Olga Maciaszek-Sharma
  */
-@HttpExchange("/employees")
-public interface EmployeeService {
-
-	@PostExchange
-	void add(@RequestBody Employee employee);
+@HttpExchange("/persons")
+public interface PersonService {
 
 	@GetExchange
-	Set<Employee> getEmployees();
+	Set<Person> getPersons();
 
-	@GetExchange("/{employeeId}")
-	Employee getEmployeeById(@PathVariable String employeeId);
+	@PostExchange
+	void add(@RequestBody Person person);
+
 }

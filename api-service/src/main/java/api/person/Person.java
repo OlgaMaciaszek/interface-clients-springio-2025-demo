@@ -1,4 +1,4 @@
-package company.person;
+package api.person;
 
 /**
  * @author Olga Maciaszek-Sharma

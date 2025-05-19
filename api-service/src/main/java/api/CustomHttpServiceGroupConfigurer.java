@@ -1,4 +1,4 @@
-package company;
+package api;
 
 import org.springframework.format.support.FormattingConversionService;
 import org.springframework.web.client.RestClient;
@@ -8,7 +8,7 @@ public class CustomHttpServiceGroupConfigurer implements RestClientHttpServiceGr
 
 	@Override
 	public void configureGroups(Groups<RestClient.Builder> groups) {
-		groups.filterByName("company").configure(
+		groups.filterByName("api").configure(
 				(_, builder) ->
 						builder.requestInterceptor((request, body, execution) -> {
 									request.getHeaders().add("Custom-Header", "custom-header-value");

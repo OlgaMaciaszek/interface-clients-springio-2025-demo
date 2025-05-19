@@ -1,5 +1,4 @@
-package company.person;
-
+package api.company;
 
 import java.util.Set;
 
@@ -11,13 +10,13 @@ import org.springframework.web.service.annotation.PostExchange;
 /**
  * @author Olga Maciaszek-Sharma
  */
-@HttpExchange("/persons")
-public interface PersonService {
+@HttpExchange("/offices")
+public interface OfficeService {
 
 	@GetExchange
-	Set<Person> getPersons();
+	Set<Office> getOffices();
 
 	@PostExchange
-	void add(@RequestBody Person person);
+	void addOffice(@RequestBody Office office);
 
 }

@@ -1,6 +1,6 @@
-package company;
+package api;
 
-import company.employee.BenefitsService;
+import api.employee.BenefitsService;
 
 import org.springframework.core.type.AnnotationMetadata;
 import org.springframework.web.service.registry.AbstractHttpServiceRegistrar;
