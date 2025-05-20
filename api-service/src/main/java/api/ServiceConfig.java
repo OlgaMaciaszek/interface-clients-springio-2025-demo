@@ -19,16 +19,17 @@ public class ServiceConfig {
 
 	@Bean
 	RestClientHttpServiceGroupConfigurer customHttpServiceGroupConfigurer() {
-		return groups -> groups.filterByName("company").configure(
-				(_, builder) ->
-						builder.requestInterceptor((request, body, execution) -> {
-									request.getHeaders()
-											.add("Custom-Header", "custom-header-value");
-									return execution.execute(request, body);
-								}
-						),
-				(_, builder) ->
-						builder.conversionService(new FormattingConversionService()));
+		return groups ->
+				groups.filterByName("company").forEachGroup((_, clientBuilder, factoryBuilder) -> {
+
+					clientBuilder.requestInterceptor((request, body, execution) -> {
+								request.getHeaders().add("Custom-Header", "custom-header-value");
+								return execution.execute(request, body);
+							}
+					);
+
+					factoryBuilder.conversionService(new FormattingConversionService());
+				});
 	}
 
 }
